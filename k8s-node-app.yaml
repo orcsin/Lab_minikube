@@ -11,10 +11,12 @@ spec:
   selector:
     matchLabels:
       app: nodejs-app
+      run: nodejs-app
   template:
     metadata:
       labels:
         app: nodejs-app
+        run: nodejs-app
     spec:
       containers:
       - name: nodejs-app
