@@ -1,5 +1,6 @@
-apiVersion: apps/v1
+--
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: nodejs-app
   namespace: default
@@ -17,9 +18,9 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: "devopshint/nodejs-app:latest"
+        image: "devopshint/node-app:latest"
         ports:
-        - containerPort: 80
+          - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
@@ -32,6 +33,5 @@ spec:
   type: NodePort
   ports:
   - name: http
-    targetPort: 80
+    targetPort: 3000
     port: 80
-    nodePort: 30002
