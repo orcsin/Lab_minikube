@@ -1,10 +1,6 @@
 name: Deploy to Minikube using GitHub Actions
 
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+on: [push]
     
 jobs:
   job1:
@@ -20,7 +16,7 @@ jobs:
       run: |
           export SHELL=/bin/bash
           eval $(minikube -p minikube docker-env)
-          docker build -f ./Dockerfile -t devopshint/node-app:latest .
+          docker build -f ./Dockerfile -t devopshint/nodejs-app:latest .
           echo -n "verifying images:"
           docker images         
     - name: Deploy to minikube
